@@ -16,7 +16,7 @@ function preload() {
   powerCoinImage = loadImage('./assets/goldCoin.png')
   obstacle1Image = loadImage('./assets/obstacle1.png')
   obstacle2Image = loadImage('./assets/obstacle2.png')
-  // lifeImage = loadImage('./assets/life.png')
+  lifeImage = loadImage('./assets/life.png')
 }
 
 function setup() {

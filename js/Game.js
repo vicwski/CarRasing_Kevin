@@ -123,15 +123,15 @@ class Game {
     this.handleElements()
     this.handleResetButton()
 
-    // Player.getPlayersInfo()
-    // player.getCarsAtEnd()
+    Player.getPlayersInfo()
+    player.getCarsAtEnd()
 
     if (allPlayers !== undefined) {
       image(track, 0, -height * 5, width, height * 6)
 
-      // this.showFuelBar()
-      // this.showLife()
-      // this.showLeaderboard()
+      this.showFuelBar()
+      this.showLife()
+      this.showLeaderboard()
 
       //índice da matriz
       var index = 0
@@ -162,16 +162,16 @@ class Game {
       //manipulando eventos de teclado
       this.handlePlayerControls()
 
-      // //Linha de chegada
-      // const finshLine = height * 6 - 100
+      //Linha de chegada
+      const finishLine = height * 6 - 100
 
-      // if (player.positionY > finshLine) {
-      //   gameState = 2
-      //   player.rank += 1
-      //   Player.updateCarsAtEnd(player.rank)
-      //   player.update()
-      //   this.showRank()
-      // }
+      if (player.positionY > finishLine) {
+        gameState = 2
+        player.rank += 1
+        Player.updateCarsAtEnd(player.rank)
+        player.update()
+        this.showRank()
+      }
 
       drawSprites()
     }
@@ -183,33 +183,33 @@ class Game {
         playerCount: 0,
         gameState: 0,
         players: {},
-        // carsAtEnd: 0
+        CarsAtEnd: 0
       })
       window.location.reload()
     })
   }
 
-  // showLife() {
-  //   push()
-  //   image(lifeImage, width / 2 - 130, height - player.positionY - 400, 20, 20)
-  //   fill('white')
-  //   rect(width / 2 - 100, height - player.positionY - 400, 185, 20)
-  //   fill('#f50057')
-  //   rect(width / 2 - 100, height - player.positionY - 400, player.life, 20)
-  //   noStroke()
-  //   pop()
-  // }
+  showLife() {
+    push()
+    image(lifeImage, width / 2 - 130, height - player.positionY - 400, 20, 20)
+    fill('white')
+    rect(width / 2 - 100, height - player.positionY - 400, 185, 20)
+    fill('#f50057')
+    rect(width / 2 - 100, height - player.positionY - 400, player.life, 20)
+    noStroke()
+    pop()
+  }
 
-  // showFuelBar() {
-  //   push()
-  //   image(fuelImage, width / 2 - 130, height - player.positionY - 350, 20, 20)
-  //   fill('white')
-  //   rect(width / 2 - 100, height - player.positionY - 350, 185, 20)
-  //   fill('#ffc400')
-  //   rect(width / 2 - 100, height - player.positionY - 350, player.fuel, 20)
-  //   noStroke()
-  //   pop()
-  // }
+  showFuelBar() {
+    push()
+    image(fuelImage, width / 2 - 130, height - player.positionY - 350, 20, 20)
+    fill('white')
+    rect(width / 2 - 100, height - player.positionY - 350, 185, 20)
+    fill('#ffc400')
+    rect(width / 2 - 100, height - player.positionY - 350, player.fuel, 20)
+    noStroke()
+    pop()
+  }
 
   showLeaderboard() {
     var leader1, leader2
@@ -291,25 +291,25 @@ class Game {
     })
   }
 
-  // showRank() {
-  //   swal({
-  //     title: `Incrível!${'\n'}Rank${'\n'}${player.rank}`,
-  //     text: 'Você alcançou a linha de chegada com sucesso!',
-  //     imageUrl:
-  //       'https://raw.githubusercontent.com/vishalgaddam873/p5-multiplayer-car-race-game/master/assets/cup.png',
-  //     imageSize: '100x100',
-  //     confirmButtonText: 'Ok'
-  //   })
-  // }
+  showRank() {
+    swal({
+      title: `Incrível!${'\n'}Rank${'\n'}${player.rank}`,
+      text: 'Você alcançou a linha de chegada com sucesso!',
+      imageUrl:
+        'https://raw.githubusercontent.com/vishalgaddam873/p5-multiplayer-car-race-game/master/assets/cup.png',
+      imageSize: '100x100',
+      confirmButtonText: 'Ok'
+    })
+  }
 
-  // gameOver() {
-  //   swal({
-  //     title: `Fim de Jogo`,
-  //     text: 'Oops você perdeu a corrida!',
-  //     imageUrl:
-  //       'https://cdn.shopify.com/s/files/1/1061/1924/products/Thumbs_Down_Sign_Emoji_Icon_ios10_grande.png',
-  //     imageSize: '100x100',
-  //     confirmButtonText: 'Obrigado por jogar'
-  //   })
-  // }
+  gameOver() {
+    swal({
+      title: `Fim de Jogo`,
+      text: 'Oops você perdeu a corrida!',
+      imageUrl:
+        'https://cdn.shopify.com/s/files/1/1061/1924/products/Thumbs_Down_Sign_Emoji_Icon_ios10_grande.png',
+      imageSize: '100x100',
+      confirmButtonText: 'Obrigado por jogar'
+    })
+  }
 }
